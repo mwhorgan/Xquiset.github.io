@@ -1,2 +1,2 @@
 # xquiset.github.io
-[Click Here](https://Xquiest.github.io)to see my github page.
+[Click Here](https://Xquiset.github.io) to see my github page.
