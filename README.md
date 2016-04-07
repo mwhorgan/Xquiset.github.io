@@ -1,3 +1,3 @@
 # xquiest.github.io
 
-[Click Here] (https://xquiset.gethub.io) to see my gethub page.
+[Click Here] (https://xquiset.github.io) to see my gethub page.
