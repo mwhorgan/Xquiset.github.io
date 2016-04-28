@@ -43,56 +43,23 @@ MinerTrouble.Game.prototype = {
     
     buildWorld: function (){
         this.add.image(0, 0, 'level');
-        this.buildMonsters();
         this.buildMiner();
-        this.buildCoins();
         this.score = this.add.bitmapText(10, 30, 'eightbitwonder', 'Score: ' + this.coinsCollected, 20);
         this.timer.start();
     },
     
     buildMonsters: function () {
-        this.monsterGroup = this.add.group();
-        this.monsterGroup.enableBody = true;
-        for (var i=0; i<this.totalmonsters; i++){
-            var b = this.monsterGroup.create(this.rnd.integerInRange(-10, this.world.widt-50), this.rnd.integerInRange(this.world.height-180, this.world.height-60), 'monster', 'Monster0000');
-            b.anchor.setTo(0.5, 0.5);
-            b.body.moves = true;
-            b.animations.add('Rest', this.game.math.numberArray(1,58));
-            b.animations.add('Walk', this.game.math.numberArray(68,107));
-            b.animations.play('Rest', 24, true);
-            this.assignBunnyMovement(b);
-        }
+       
     },
     
     buildMiner: function () {
-        
+        miner = this.add.sprite(40, 100, 'miner');
+        miner.animations.add('Walk');
+        miner.animations.play('Walk', 50, true);
     },
     
     buildCoins: function () {
-        this.coinGroup = this.add.group();
-        this.coinGroup.enableBody = true;
-        for (var i=0; this.totalcoins; i++){
-            var b = this.coinGroup.create(this.rnd.integerInRange(-10, this.world.width-50), this.rnd.integerInRange(this.world.height1-180, this.world.height-60), 'coin', 'Coin0000');
-            b.anchor.setTo(0.5, 0.5);
-        }
-    },
-    
-    assignMonsterMovement: function (){
         
-    },
-    
-    assignMinerMovement: function () {
-        
-    },
-    
-    startMonster: function () {
-        b.animations.stop('Rest');
-        b.animations.play('Walk', 24, true);
-    },
-    
-    stopMonster: function () {
-        b.animations.stop('Walk');
-        b.animations.play('Rest', 24, true);
     },
     
     resetCoin: function(r) {

@@ -1,7 +1,6 @@
 MinerTrouble.StartMenu = function (game) {
     this.startBG;
     this.startPrompt;
-    
 };
 
 MinerTrouble.StartMenu.prototype = {
@@ -17,4 +16,4 @@ MinerTrouble.StartMenu.prototype = {
     startGame: function (pointer) {
         this.state.start('Game');
     }
-}
+};

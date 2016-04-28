@@ -1,0 +1,14 @@
+.frame { 
+ background-color: transparent;
+ background-image: url(sprite-minerbd4942b4ab1f63a729b60e366e93e548.png);
+ background-repeat: no-repeat;
+ width: 42px;  }
+.frame-0 { background-position: 0 0; }
+.frame-1 { background-position: -84px 0; } 
+.frame-2 { background-position: -126px 0; } 
+.frame-3 { background-position: -168px 0; } 
+.frame-4 { background-position: -210px 0; } 
+.frame-5 { background-position: -252px 0; } 
+.frame-6 { background-position: -294px 0; } 
+.frame-7 { background-position: -336px 0; } 
+
