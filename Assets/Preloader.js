@@ -12,6 +12,7 @@ MinerTrouble.Preloader.prototype = {
         this.load.setPreloadSprite(this.preloadBar);
         this.titleText = this.add.image(this.world.centerX, this.world.centerY - 220, 'titleimage');
         this.titleText.anchor.setTo(0.5, 0.5);
+        this.load.image()
         this.load.image('cloud', 'Images/Cloud/sprite_cloud0.png');
         this.load.bitmapFont('eightbitwonder', 'Fonts/eightbitwonder.png', 'Fonts/eightbitwonder.fnt');
         this.load.image('level', 'Images/Level/Level 1 Idea.png');
