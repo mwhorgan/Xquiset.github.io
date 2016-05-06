@@ -45,9 +45,9 @@ MinerTrouble.Game.prototype = {
     buildWorld: function (){
         this.add.image(0, 70, 'level');
         this.buildMiner();
-<<<<<<< HEAD
         this.buildCoins();
-        this.score = this.add.bitmapText(10, 10, 'eightbitwonder', 'Score: ' + this.coinsCollected, 20);
+        this.score = this.add.bitmapText(5, 20, 'eightbitwonder', 'Coins Collected: ' + this.coinsCollected, 15);
+        this.health = this.add.bitmapText(5, 40, 'eightbitwonder', 'Health: ' + this.healthPoints, 15);
         this.timer.start();
     },
     
@@ -65,13 +65,6 @@ MinerTrouble.Game.prototype = {
         }
     },
     
-=======
-        this.score = this.add.bitmapText(5, 20, 'eightbitwonder', 'Coins Collected: ' + this.coinsCollected, 15);
-        this.health = this.add.bitmapText(5, 40, 'eightbitwonder', 'Health: ' + this.healthPoints, 15);
-        this.timer.start();
-    },
-    
->>>>>>> origin/master
     buildMiner: function () {
         this.player = this.add.sprite(65, 130, 'miner');
         

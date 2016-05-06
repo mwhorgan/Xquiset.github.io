@@ -12,11 +12,7 @@ MinerTrouble.Boot.prototype = {
         this.inputmaxPointers = 1;
         this.stage.disableVisibilityChange = false;
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-<<<<<<< HEAD
         this.scale.minWidth = 1473;
-=======
-        this.scale.minWidth = 1423;
->>>>>>> origin/master
         this.scale.minHeight = 775;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
