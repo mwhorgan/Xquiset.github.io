@@ -1,7 +1,6 @@
 MinerTrouble.StartMenu = function (game) {
     this.startBG;
     this.startPrompt;
-    
 };
 
 MinerTrouble.StartMenu.prototype = {

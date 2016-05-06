@@ -46,7 +46,7 @@ MinerTrouble.Game.prototype = {
         this.buildMonsters();
         this.buildMiner();
         this.buildCoins();
-        this.score = this.add.bitmapText(10, 30, 'eightbitwonder', 'Score: ' + this.coinsCollected, 20);
+        this.score = this.add.bitmapText(10, 10, 'eightbitwonder', 'Score: ' + this.coinsCollected, 20);
         this.timer.start();
     },
     
@@ -60,7 +60,7 @@ MinerTrouble.Game.prototype = {
             b.animations.add('Rest', this.game.math.numberArray(1,58));
             b.animations.add('Walk', this.game.math.numberArray(68,107));
             b.animations.play('Rest', 24, true);
-            this.assignBunnyMovement(b);
+            this.assignMonsterMovement(b);
         }
     },
     
