@@ -4,14 +4,13 @@
 	<meta charset="utf-8">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" sizes="196x196" href="Miner/sprite_miner0.png">
 	<title>Miner Trouble</title>
     <script src="libs/phaser.js"></script>
     <script src="Boot.js"></script>
     <script src="Preloader.js"></script>
-    <script src="StartMenu.js"></script>
+	<script src="StartMenu.js"></script>
     <script src="Game.js"></script>
-	<style>
+    <style>
 		body {
 			padding: 0;
 			margin: 0;
@@ -23,7 +22,7 @@
     <div id="gameContainer"></div>
     <script type="text/javascript">
         window.onload = function() {
-            var game = new Phaser.Game(540, 960, Phaser.AUTO, 'gameContainer');
+            var game = new Phaser.Game(1423, 775, Phaser.AUTO, 'gameContainer');
             game.state.add('Boot', MinerTrouble.Boot);
             game.state.add('Preloader', MinerTrouble.Preloader);
             game.state.add('StartMenu', MinerTrouble.StartMenu);

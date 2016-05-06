@@ -1,0 +1,8 @@
+.frame { 
+ background-color: transparent;
+ background-image: url(sprite-crazypacman2e8be6416477c4df5e01742ff67bba53.png);
+ background-repeat: no-repeat;
+ width: 32px;  }
+.frame-0 { background-position: 0 0; }
+.frame-1 { background-position: -64px 0; } 
+

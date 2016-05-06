@@ -4,7 +4,7 @@ MinerTrouble.Boot = function (game) {};
 MinerTrouble.Boot.prototype = {
     
     preload: function () {
-        this.load.image('prealoaderBar', 'Images/Title Logo/loader_bar.png');
+        this.load.image('preloaderBar', 'Images/Title Logo/loader_bar.png');
         this.load.image('titleimage', 'Images/Title Logo/image.png');
     },
     
@@ -12,7 +12,11 @@ MinerTrouble.Boot.prototype = {
         this.inputmaxPointers = 1;
         this.stage.disableVisibilityChange = false;
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+<<<<<<< HEAD
         this.scale.minWidth = 1473;
+=======
+        this.scale.minWidth = 1423;
+>>>>>>> origin/master
         this.scale.minHeight = 775;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
@@ -20,7 +24,7 @@ MinerTrouble.Boot.prototype = {
         this.scale.setScreenSize(true);
         
         this.input.addPointer();
-        this.stage.backgroundColor = '#7F392A';
+        this.stage.backgroundColor = '#000000';
         
         this.state.start('Preloader');
         
