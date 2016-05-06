@@ -77,15 +77,12 @@ MinerTrouble.Game.prototype = {
     },
     
     buildCoins: function () {
-        
-    },
-    
-    resetCoin: function(r) {
-    
-    },
-    
-    respawnCoin: function () {
-        
+        for(this.i = 0; this.i <= 100; this.i++)
+        {
+            this.x = Math.floor(Math.random() * (1400 - 65 + 1)) + 65;
+            this.y = Math.floor(Math.random() * (90 - 650 + 1)) + 650;
+            this.coint = this.add.sprite(this.x, this.y, 'coin');
+        }
     },
     
     monsterCollision: function () {
