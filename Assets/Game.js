@@ -99,42 +99,18 @@ MinerTrouble.Game.prototype = {
         if (this.cursor.left.isDown)
         {
             this.player.body.velocity.x = -150;
-
-            if (this.facing != 'left')
-            {
-                this.player.animations.play('left');
-                this.facing = 'left';
-            }
         }
         else if (this.cursor.right.isDown)
         {
             this.player.body.velocity.x = 150;
-
-            if (this.facing != 'right')
-            {
-                this.player.animations.play('right');
-                this.facing = 'right';
-            }
         }
         else if (this.cursor.down.isDown)
         {
             this.player.body.velocity.y = 150;
-            
-            if (this.facing != 'up')
-            {
-                this.player.animations.play('up');
-                this.facing = 'up';
-            }
         }
         else if (this.cursor.up.isDown)
         {
             this.player.body.velocity.y = -150;
-            
-            if(this.facing != 'down')
-            {
-                this.player.animations.play('down');
-                this.facing = 'down';
-            }
         }
         else
         {
