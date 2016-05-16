@@ -2,13 +2,10 @@ MinerTrouble.Game = function (game) {
     this.coin;
     this.player;
     this.totalcoins;
-    this.totalmonsters;
     this.coinsCollected;
     this.gameover;
     this.overmessage;
-    this.secondsElapsed;
     this.score;
-    this.timer;
     this.music;
     this.ouch;
     this.health;
@@ -20,9 +17,6 @@ MinerTrouble.Game = function (game) {
 MinerTrouble.Game.prototype = {
     create: function () {
         this.gameover = false;
-        this.secondsElapsed = 0;
-        this.timer = this.time.create(false);
-        this.timer.loop(1000, this.updateSeconds, this);
         this.totalcoins = 100;
         this.totalmonsters = 5;
         this.coinsCollected = 0;
@@ -32,37 +26,24 @@ MinerTrouble.Game.prototype = {
         this.buildWorld();
     },
     
-    updateSeconds: function () {
-        this.secondsElapsed++;
-        
+    updateGame: function () {
         if(this.gameover != false){
-            this.score.setText('');
+            this.score.setText('Coins Collected: Dead!');
         }else{
             this.score.setText('Coins Collected: ' + this.coinsCollected);
         }
     },
     
     buildWorld: function (){
-        this.add.image(0, 70, 'level');
+        this.add.image(-20, 0, 'level');
         this.buildMiner();
         this.buildCoins();
         this.score = this.add.bitmapText(5, 20, 'eightbitwonder', 'Coins Collected: ' + this.coinsCollected, 15);
         this.health = this.add.bitmapText(5, 40, 'eightbitwonder', 'Health: ' + this.healthPoints, 15);
-        this.timer.start();
     },
     
     buildMonsters: function () {
-        this.monsterGroup = this.add.group();
-        this.monsterGroup.enableBody = true;
-        for (var i=0; i<this.totalmonsters; i++){
-            var b = this.monsterGroup.create(this.rnd.integerInRange(-10, this.world.widt-50), this.rnd.integerInRange(this.world.height-180, this.world.height-60), 'monster', 'Monster0000');
-            b.anchor.setTo(0.5, 0.5);
-            b.body.moves = true;
-            b.animations.add('Rest', this.game.math.numberArray(1,58));
-            b.animations.add('Walk', this.game.math.numberArray(68,107));
-            b.animations.play('Rest', 24, true);
-            this.assignMonsterMovement(b);
-        }
+        
     },
     
     buildMiner: function () {
@@ -81,7 +62,7 @@ MinerTrouble.Game.prototype = {
         {
             this.x = Math.floor(Math.random() * (1400 - 65 + 1)) + 65;
             this.y = Math.floor(Math.random() * (90 - 650 + 1)) + 650;
-            this.coint = this.add.sprite(this.x, this.y, 'coin');
+            this.coin = this.add.sprite(this.x, this.y, 'coin');
         }
     },
     
@@ -94,7 +75,7 @@ MinerTrouble.Game.prototype = {
     },
     
     checkHealth: function () {
-        if(this.health <= 0){
+        if(this.healthPoints <= 0){
             this.gameover = true;
             this.health.setText('Health: 0');
             this.overmessage = this.add.bitmapText(this.world.centerX-180, this.world.centerY-40, 'eightbitwonder', 'GAME OVER\n\n' + this.coinsCollected, 42);
@@ -163,7 +144,7 @@ MinerTrouble.Game.prototype = {
             }
             if (this.facing == 'left')
             {
-                this.player.frame = 3;
+                this.player.frame = 2;
             }
             else if(this.facing == 'up')
             {
@@ -171,7 +152,10 @@ MinerTrouble.Game.prototype = {
             }
             else if(this.facing == 'down')
             {
-                this.player.frame = 1;
+                this.player.frame = 1; 
+            }
+            else if(this.facing == 'right'){
+                this.player.frame = 3
             }
             else
             {
