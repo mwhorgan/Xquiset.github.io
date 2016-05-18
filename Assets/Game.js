@@ -1,7 +1,7 @@
 MinerTrouble.Game = function (game) {
+    this.coins;
     this.coin;
     this.player;
-    this.totalcoins;
     this.coinsCollected;
     this.gameover;
     this.overmessage;
@@ -15,14 +15,14 @@ MinerTrouble.Game = function (game) {
 };
 
 MinerTrouble.Game.prototype = {
+    
     create: function () {
+        this.physics.startSystem(Phaser.Physics.ARCADE);
         this.gameover = false;
-        this.totalcoins = 100;
         this.totalmonsters = 5;
         this.coinsCollected = 0;
         this.healthPoints = 1000;
         this.facing = 'left';
-        
         this.buildWorld();
     },
     
@@ -36,6 +36,7 @@ MinerTrouble.Game.prototype = {
     
     buildWorld: function (){
         this.add.image(-20, 0, 'level');
+        this.buildLevel();
         this.buildMiner();
         this.buildCoins();
         this.score = this.add.bitmapText(5, 20, 'eightbitwonder', 'Coins Collected: ' + this.coinsCollected, 15);
@@ -48,29 +49,39 @@ MinerTrouble.Game.prototype = {
     
     buildMiner: function () {
         this.player = this.add.sprite(65, 130, 'miner');
-        
         this.physics.enable(this.player, Phaser.Physics.ARCADE);
-    
         this.camera.follow(this.player);
-        
         this.cursor = this.input.keyboard.createCursorKeys();
-        
+        this.player.anchor.set(0.5);
+        this.player.checkWorldBounds = true;
+        this.player.events.onOutOfBounds
+    },
+    
+    buildLevel: function () {
+        this.add.image(80, 80, 'rightT');
+        this.add.image(400, 80, 'leftT');
+        this.add.image(240, 80, 'bar');
+        this.add.image(240, 200, 'sidebar');
+        this.add.image(240, 320, 'bar');
+        this.add.image(40, 320, 'bar');
+        this.add.image(450, 320, 'bar');
     },
     
     buildCoins: function () {
+        this.coins = this.add.group();
+        this.coins.enableBody = true;
+        this.coins.physicsBodyType = Phaser.Physics.ARCADE;
+        
         for(this.i = 0; this.i <= 100; this.i++)
         {
             this.x = Math.floor(Math.random() * (1400 - 65 + 1)) + 65;
             this.y = Math.floor(Math.random() * (90 - 650 + 1)) + 650;
-            this.coin = this.add.sprite(this.x, this.y, 'coin');
+            this.coin = this.coins.create(this.x, this.y, 'coin');
+            this.coin.body.immovable = true;
         }
     },
     
     monsterCollision: function () {
-        
-    },
-    
-    coinCollision: function () {
         
     },
     
@@ -92,9 +103,8 @@ MinerTrouble.Game.prototype = {
     },
     
     update: function () {
-        this.physics.arcade.collide(this.player);
-
         this.player.body.velocity.x = 0;
+        this.physics.arcade.collide(this.player, this.coins, this.playerHitCoin, null, this);
 
         if (this.cursor.left.isDown)
         {
@@ -136,9 +146,16 @@ MinerTrouble.Game.prototype = {
             else
             {
                 this.player.frame = 1;
+                this.physics.arcade.collide(this.player, this.coins, this.playerHitCoin, null, this);
             }
             this.facing = 'idle';
             this.player.body.velocity.y = 0;
         }
+    },
+    
+    playerHitCoin: function (_player, _coin) {
+        _coin.kill();
+        this.coinsCollected += 1;
+        this.score.setText('Coins Collected: ' + this.coinsCollected);
     }
 };

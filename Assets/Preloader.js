@@ -25,7 +25,11 @@ MinerTrouble.Preloader.prototype = {
         this.load.spritesheet('miniblob', 'Images/Mini Blob/sprite-miniblob/mini_blob.png', 32, 32);
         this.load.spritesheet('shadowman', 'Images/Shadow Man/sprite-shadowman/shadowman.png', 32, 32);
         this.load.spritesheet('worm', 'Images/Worm/sprite-worm/worm.png', 32, 32);
-        this.load.image('level', 'Images/Level/level idea.png');
+        this.load.image('level', 'Images/Level/level background.png');
+        this.load.image('rightT', 'Images/Level/right point T.png');
+        this.load.image('leftT', 'Images/Level/left point T.png');
+        this.load.image('bar', 'Images/Level/bar.png');
+        this.load.image('sidebar', 'Images/Level/sideways bar.png');
     },
     
     create: function () {
